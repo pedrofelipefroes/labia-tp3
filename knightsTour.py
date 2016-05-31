@@ -1,8 +1,5 @@
-import random
 import copy
-from pprint import pprint
-
-import matplotlib.pyplot as plt
+import random
 
 NUM_GENERATIONS = 10
 POPULATION_SIZE = 30
@@ -158,9 +155,9 @@ if __name__ == '__main__':
 
 	x = [i for i in range(NUM_GENERATIONS)]
 
-	print('Generations')
+	print('\nGenerations')
 	print(x)
-	print('Best Game')
+	print('\nBest Game')
 	print(y)
 
 
