@@ -1,11 +1,15 @@
-##### CENTRO FEDERAL DE EDUCAÇÃO TECNOLÓGICA DE MINAS GERAIS
-##### ENGENHARIA DE COMPUTAÇÃO
-##### LABORATÓRIO DE INTELIGÊNCIA ARTIFICIAL
-##### Prof. Flávio Cruzeiro
-##### 2016-1
+**CENTRO FEDERAL DE EDUCAÇÃO TECNOLÓGICA DE MINAS GERAIS**
 
-## TP3: Algoritmo Genético Aplicado ao Problema do Passeio do Cavalo
-##### por Pedro Felipe Froes e Saulo Antunes
+**ENGENHARIA DE COMPUTAÇÃO**
+
+**LABORATÓRIO DE INTELIGÊNCIA ARTIFICIAL**
+
+**Prof. Flávio Cruzeiro**
+
+**2016-1**
+
+#### TP3: Algoritmo Genético Aplicado ao Problema do Passeio do Cavalo
+**por Pedro Felipe Froes e Saulo Antunes**
 
 ======
 
