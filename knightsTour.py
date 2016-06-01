@@ -71,13 +71,13 @@ class Game():
 	def printTable(self):
 		for i in range(0, TABLE_SIZE):
 			for j in range(0, TABLE_SIZE):
-				print(repr(self.table[i][j]).rjust(3), end=' ')
+				print(repr(self.table[i][j]).rjust(3))
 			print()
 
 	def printPriorityTable(self):
 		for i in range(0, TABLE_SIZE):
 			for j in range(0, TABLE_SIZE):
-				print(repr(self.priority_table[i][j]).rjust(3), end=' ')
+				print(repr(self.priority_table[i][j]).rjust(3))
 			print()
 
 	def __add__(self, other):
@@ -104,7 +104,7 @@ class Population():
 			game.play()
 
 		self.bestGames.append(self.getBestGame()) 
-		self.worseGames.append(self.getWorseGame()) 
+		self.worseGames.append(self.getWorstGame()) 
 
 		print("({0}, {1})".format(self.bestGames[-1].moves, self.worseGames[-1].moves))
 
@@ -116,7 +116,7 @@ class Population():
 
 		return bestGame
 
-	def getWorseGame(self):
+	def getWorstGame(self):
 		worseGame = self.games[0]
 		for game in self.games:
 			if game.moves < worseGame.moves:
