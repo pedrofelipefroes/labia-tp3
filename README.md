@@ -1,11 +1,11 @@
 <dl>
 <p><strong>
-CENTRO FEDERAL DE EDUCAÇÃO TECNOLÓGICA DE MINAS GERAIS
-ENGENHARIA DE COMPUTAÇÃO
-LABORATÓRIO DE INTELIGÊNCIA ARTIFICIAL
-Prof. Flávio Cruzeiro
+CENTRO FEDERAL DE EDUCAÇÃO TECNOLÓGICA DE MINAS GERAIS<br>
+ENGENHARIA DE COMPUTAÇÃO<br>
+LABORATÓRIO DE INTELIGÊNCIA ARTIFICIAL<br>
+Prof. Flávio Cruzeiro<br>
 
-2016-1
+<p>2016-1</p>
 </strong></p>
 </dl>
 
@@ -48,15 +48,13 @@ A operação de **seleção** é implementada no método `getBestGame` e verific
 
 O **pareamento** é então aplicado à população, de modo que o indivíduo 1 é pareado com o 15, o 2 com 16, o 3 com 17, e assim por diante até parear o indivíduo 14 com o 30. Agora pareados, ocorre a operação de **_crossover_**, mostrada na figura a seguir.
 
-![Crossover](img/crossover.png)
-_Figura 2: Operação de_ crossover
+![Crossover](img/crossover.png)<dl><br><em>Figura 2: Operação de </em>crossover</dl>
 
 O _crossover_ dos indivíduos a direita gera outros dois indivíduos _filhos_ a esquerda, ambos possuindo características mescladas dos seus _pais_. A operação de _crossver_ se dá mesclando o tabuleiro de prioridades de ambos indivíduos, gerando assim dois novos indivíduos com dois novos tabuleiros de prioridade. Ao final dessa etapa, a população será dobrada.
 
 A **mutação** tem uma chance aleatória de ocorrer sobre os indivíduos da população. O indivíduo afetado por ela tem algum valor de seu tabuleiro de prioridade alterado randomicamente, conforme mostrado na figura abaixo.
 
-![Mutação](img/mutation.png)
-_Figura 3: Operação de mutação_
+![Mutação](img/mutation.png)<dl><br><em>Figura 3: Operação de mutação</em></dl>
 
 Na Figura 3, a posição `(4,4)` do tabuleiro de prioridades de um indivíduo é selecionada aleatoriamente, e tem seu valor alterado de `7` para `1` também de forma aleatória.
 
