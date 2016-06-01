@@ -32,6 +32,7 @@ O algoritmo foi construído em cima de três parâmetros principais: o número d
 Um dos princípais atributos do indivíduo é seu tabuleiro de prioridade de movimentos. Cada indvíduo possui um tabuleiro com tamanho equivalente ao tabuleiro do problema, onde cada casa possui um valor de prioridade randômico definido entre 0 e 10. Para escolher qual será sua próxima casa a ser visitada, o indivíduo seleciona primeiramente aquelas cujo movimento é válido (ou seja, correspondem ao _L_ do Cavalo), e posteriormente a casa de maior prioridade analisada primeiro. Ambas decisões são realizadas através dos métodos `nextMoves` e `getBestMove`, respectivamente.
 
 ![Escolha do movimento do Cavalo](img/makemove.png)
+
 _Figura 1: Escolha do movimento do Cavalo_
 
 A figura acima exemplifica o processo de decisão do próximo movimento de um indivíduo, mostrando seu tabuleiro de prioridades. No tabuleiro da esquerda, o Cavalo se encontra inicialmente na posição `(0,0)` (em verde), e os movimentos possíveis obtidos através do `nextMoves` são representados em laranja. Cabe ao `getBestMove` analisar qual a casa de maior prioridade dentre as selecionadas previamente - no caso, a posição `(3,2)` é selecionada, e a quantidade de movimentos `moves` é incrementada em 1. Na figura da direita, o Cavalo encontra-se na posição seguinte (em verde), e as possíveis posições são mostradas também em laranja. É válido reparar que sua posição anterior, `(0,0)`, não é um movimento possível, pois está já presente na tabela de posições visitadas pelo indivíduo.
@@ -48,13 +49,17 @@ A operação de **seleção** é implementada no método `getBestGame` e verific
 
 O **pareamento** é então aplicado à população, de modo que o indivíduo 1 é pareado com o 15, o 2 com 16, o 3 com 17, e assim por diante até parear o indivíduo 14 com o 30. Agora pareados, ocorre a operação de **_crossover_**, mostrada na figura a seguir.
 
-![Crossover](img/crossover.png)<dl><br><em>Figura 2: Operação de </em>crossover</dl>
+![Crossover](img/crossover.png)
+
+_Figura 2: Operação de_ crossover
 
 O _crossover_ dos indivíduos a direita gera outros dois indivíduos _filhos_ a esquerda, ambos possuindo características mescladas dos seus _pais_. A operação de _crossver_ se dá mesclando o tabuleiro de prioridades de ambos indivíduos, gerando assim dois novos indivíduos com dois novos tabuleiros de prioridade. Ao final dessa etapa, a população será dobrada.
 
 A **mutação** tem uma chance aleatória de ocorrer sobre os indivíduos da população. O indivíduo afetado por ela tem algum valor de seu tabuleiro de prioridade alterado randomicamente, conforme mostrado na figura abaixo.
 
-![Mutação](img/mutation.png)<dl><br><em>Figura 3: Operação de mutação</em></dl>
+![Mutação](img/mutation.png)
+
+_Figura 3: Operação de mutação_
 
 Na Figura 3, a posição `(4,4)` do tabuleiro de prioridades de um indivíduo é selecionada aleatoriamente, e tem seu valor alterado de `7` para `1` também de forma aleatória.
 
