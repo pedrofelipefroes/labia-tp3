@@ -51,13 +51,14 @@ O **pareamento** é então aplicado à população, de modo que o indivíduo 1 �
 
 ![Crossover](img/crossover.png)
 
-_Figura 2: Operação de_ crossover_._
+_Figura 2: Operação de_ crossover.
 
 O _crossover_ dos indivíduos a direita gera outros dois indivíduos _filhos_ a esquerda, ambos possuindo características mescladas dos seus _pais_. A operação de _crossver_ se dá mesclando o tabuleiro de prioridades de ambos indivíduos, gerando assim dois novos indivíduos com dois novos tabuleiros de prioridade. Ao final dessa etapa, a população será dobrada.
 
 A **mutação** tem uma chance aleatória de ocorrer sobre os indivíduos da população. O indivíduo afetado por ela tem algum valor de seu tabuleiro de prioridade alterado randomicamente, conforme mostrado na figura abaixo.
 
 ![Mutação](img/mutation.png)
+
 _Figura 3: Operação de mutação_
 
 Na Figura 3, a posição `(4,4)` do tabuleiro de prioridades de um indivíduo é selecionada aleatoriamente, e tem seu valor alterado de 7 para 1 também de forma aleatória.
