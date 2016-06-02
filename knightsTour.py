@@ -1,9 +1,9 @@
 import copy
 import random
 
-NUM_GENERATIONS = 10
-POPULATION_SIZE = 30
-TABLE_SIZE = 16
+NUM_GENERATIONS = 30
+POPULATION_SIZE = 60
+TABLE_SIZE = 8
 
 def createTable(rows=TABLE_SIZE, columns=TABLE_SIZE, zeroes=True):
 	if zeroes:
@@ -93,7 +93,7 @@ class Population():
 	def __init__(self):
 		self.games = []
 		self.bestGames = []
-		self.worseGames = []
+		self.worstGames = []
 
 		for i in range(POPULATION_SIZE):
 			g = Game()
@@ -104,9 +104,9 @@ class Population():
 			game.play()
 
 		self.bestGames.append(self.getBestGame()) 
-		self.worseGames.append(self.getWorstGame()) 
+		self.worstGames.append(self.getWorstGame()) 
 
-		print("({0}, {1})".format(self.bestGames[-1].moves, self.worseGames[-1].moves))
+		print("({0}, {1})".format(self.bestGames[-1].moves, self.worstGames[-1].moves))
 
 	def getBestGame(self):
 		bestGame = self.games[0]
@@ -117,12 +117,12 @@ class Population():
 		return bestGame
 
 	def getWorstGame(self):
-		worseGame = self.games[0]
+		worstGame = self.games[0]
 		for game in self.games:
-			if game.moves < worseGame.moves:
-				worseGame = game
+			if game.moves < worstGame.moves:
+				worstGame = game
 
-		return worseGame
+		return worstGame
 
 	def cross(self):
 		pass
@@ -147,22 +147,27 @@ if __name__ == '__main__':
 	for i in range(NUM_GENERATIONS):
 		p.play()
 		p.nextGeneration()
-
+    
+	x = [i for i in range(NUM_GENERATIONS)]
 	y = []
+	z = []
 
 	for game in p.bestGames:
 		y.append(game.moves)
 
-	x = [i for i in range(NUM_GENERATIONS)]
+	for game in p.worstGames:
+		z.append(game.moves)
 
 	print('\nGenerations')
 	print(x)
 	print('\nBest Game')
 	print(y)
+	print('\nWorst Game')
+	print(z)
 
 
-	bestGame = p.bestGames[-1]
-	print("\nPriority Table")
-	bestGame.printPriorityTable()
-	print("\nTable")
-	bestGame.printTable()
+#bestGame = p.bestGames[-1]
+#print("\nPriority Table")
+#bestGame.printPriorityTable()
+#print("\nTable")
+#bestGame.printTable()
