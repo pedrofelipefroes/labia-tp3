@@ -33,11 +33,7 @@ Um dos princípais atributos do indivíduo é seu tabuleiro de prioridade de mov
 
 ![Escolha do movimento do Cavalo](img/makemove.png)
 
-<<<<<<< HEAD
 _Figura 1: Escolha do movimento do Cavalo._
-=======
-_Figura 1: Escolha do movimento do Cavalo_
->>>>>>> 0f15851dbea926aef7a5295534369df1b10b8482
 
 A figura acima exemplifica o processo de decisão do próximo movimento de um indivíduo, mostrando seu tabuleiro de prioridades. No tabuleiro da esquerda, o Cavalo se encontra inicialmente na posição `(0,0)` (em verde), e os movimentos possíveis obtidos através do `nextMoves` são representados em laranja. Cabe ao `getBestMove` analisar qual a casa de maior prioridade dentre as selecionadas previamente - no caso, a posição `(3,2)` é selecionada, e a quantidade de movimentos `moves` é incrementada em 1. Na figura da direita, o Cavalo encontra-se na posição seguinte (em verde), e as possíveis posições são mostradas também em laranja. É válido reparar que sua posição anterior, `(0,0)`, não é um movimento possível, pois está já presente na tabela de posições visitadas pelo indivíduo.
 
@@ -55,24 +51,14 @@ O **pareamento** é então aplicado à população, de modo que o indivíduo 1 �
 
 ![Crossover](img/crossover.png)
 
-<<<<<<< HEAD
 _Figura 2: Operação de_ crossover_._
-=======
-_Figura 2: Operação de_ crossover
->>>>>>> 0f15851dbea926aef7a5295534369df1b10b8482
 
 O _crossover_ dos indivíduos a direita gera outros dois indivíduos _filhos_ a esquerda, ambos possuindo características mescladas dos seus _pais_. A operação de _crossver_ se dá mesclando o tabuleiro de prioridades de ambos indivíduos, gerando assim dois novos indivíduos com dois novos tabuleiros de prioridade. Ao final dessa etapa, a população será dobrada.
 
 A **mutação** tem uma chance aleatória de ocorrer sobre os indivíduos da população. O indivíduo afetado por ela tem algum valor de seu tabuleiro de prioridade alterado randomicamente, conforme mostrado na figura abaixo.
 
 ![Mutação](img/mutation.png)
-<<<<<<< HEAD
-=======
-
 _Figura 3: Operação de mutação_
->>>>>>> 0f15851dbea926aef7a5295534369df1b10b8482
-
-_Figura 3: Operação de mutação._
 
 Na Figura 3, a posição `(4,4)` do tabuleiro de prioridades de um indivíduo é selecionada aleatoriamente, e tem seu valor alterado de 7 para 1 também de forma aleatória.
 
@@ -99,7 +85,7 @@ A seguir, foram executado 30 vezes o algoritmo ainda para o tabuleiro 8x8, com c
 
 ![30 execuções para um tabuleiro 8x8 e população 60](img/data2.png)
 
-_Figura 5: 30 execuções em um tabuleiro 8x8, melhor e pior jogo de cada execução são mostrados em roxo e azul, respectivamente.
+_Figura 5: 30 execuções em um tabuleiro 8x8, melhor e pior jogo de cada execução são mostrados em roxo e azul, respectivamente._
 
 
 
