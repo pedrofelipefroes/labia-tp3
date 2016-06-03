@@ -1,8 +1,9 @@
 import copy
 import random
+import time
 
 NUM_GENERATIONS = 30
-POPULATION_SIZE = 60
+POPULATION_SIZE = 30
 TABLE_SIZE = 8
 
 def createTable(rows=TABLE_SIZE, columns=TABLE_SIZE, zeroes=True):
@@ -71,13 +72,13 @@ class Game():
 	def printTable(self):
 		for i in range(0, TABLE_SIZE):
 			for j in range(0, TABLE_SIZE):
-				print(repr(self.table[i][j]).rjust(3))
+				print(repr(self.table[i][j]).rjust(3), end=' ')
 			print()
 
 	def printPriorityTable(self):
 		for i in range(0, TABLE_SIZE):
 			for j in range(0, TABLE_SIZE):
-				print(repr(self.priority_table[i][j]).rjust(3))
+				print(repr(self.priority_table[i][j]).rjust(3), end=' ')
 			print()
 
 	def __add__(self, other):
@@ -142,6 +143,8 @@ class Population():
 		self.games[0] = self.bestGames[-1]
 
 if __name__ == '__main__':
+	start = time.time()
+	
 	p = Population()
 
 	for i in range(NUM_GENERATIONS):
@@ -158,12 +161,14 @@ if __name__ == '__main__':
 	for game in p.worstGames:
 		z.append(game.moves)
 
-	print('\nGenerations')
-	print(x)
-	print('\nBest Game')
-	print(y)
-	print('\nWorst Game')
-	print(z)
+	end = time.time()
+	print(end - start)
+#print('\nGenerations')
+#print(x)
+#print('\nBest Game')
+#print(y)
+#print('\nWorst Game')
+#print(z)
 
 
 #bestGame = p.bestGames[-1]
