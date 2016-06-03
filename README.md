@@ -113,6 +113,7 @@ A seguir, foi executado o algoritmo 30 vezes ainda para um tabuleiro 8x8, com ca
 
 _Figura 5: 30 execuções em um tabuleiro 8x8, melhor e pior jogo de cada execução são mostrados em roxo e azul, respectivamente._
 
+| ----------------------------------- | ------- |
 | **Melhor valor da Função Objetivo** | 64      |
 | **Média do melhor jogo**            | 60.2627 |
 | **Desvio padrão do melhor jogo**    | 1.8182  |
@@ -126,6 +127,7 @@ Nas execuções acima, a solução é encontrada uma única vez, durante a execu
 Outras execuções do algoritmo foram realizadas, considerando agora diferentes tamanhos de tabuleiros, com o número de gerações e o tamanho da população fixados em 30. Foram realizadas 5 execuções do algoritmo quando possível, e o tempo computacional e os melhores valores da Função Objetivo para cada tamanho de tabuleiro são mostrados a seguir.
 
 |               | **Solução** | **Função Objetivo** | **Tempo computacional** | 
+| ------------- | ----------- | ------------------- | ----------------------- |
 | **5x5**       | 25          | 25                  | 1.6424 s                |
 | **8x8**       | 64          | 64                  | 3.6280 s                |
 | **16x16**     | 256         | 227                 | 12.2946 s               |
@@ -136,7 +138,7 @@ Outras execuções do algoritmo foram realizadas, considerando agora diferentes 
 | **512x512**   | 262144      | 14552**#**          | 1785.8068 s             |
 | **1024x1024** | 1048576     | *                   | *                       |
 
-_Tabela 2: Estatísticas referentes à execução em diversos tamanhos de tabuleiros. O **#** ao lado do valor mostra que não foram realizadas 5 execuções do algoritmo devido ao tempo gasto, enquanto o ***** denota que não foi possível obter o valor devido ao alto tempo computacional que a solução requer._
+_Tabela 2: Estatísticas referentes à execução em diversos tamanhos de tabuleiros. O # ao lado do valor mostra que não foram realizadas 5 execuções do algoritmo devido ao tempo gasto, enquanto o * denota que não foi possível obter o valor devido ao alto tempo computacional que a solução requer._
 
 A medida que o tamanho do tabuleiro aumenta, o tempo de solução aumenta exponencialmente, enquanto os melhores valores da Função Objetivo para as cinco execuções caem drasticamente. Uma maneira de aumentar esses valores é aumentar o número de gerações de acordo com o tamanho do tabuleiro – isso é, tabuleiros maiores devem iterar por mais gerações que os demais. Entretanto, isso também aumentaria bastante o tempo computacional gasto por execução de cada algoritmo.
 
