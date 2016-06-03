@@ -113,6 +113,7 @@ A seguir, foi executado o algoritmo 30 vezes ainda para um tabuleiro 8x8, com ca
 
 _Figura 5: 30 execuções em um tabuleiro 8x8, melhor e pior jogo de cada execução são mostrados em roxo e azul, respectivamente._
 
+|                                     | Valor   |
 | ----------------------------------- | ------- |
 | **Melhor valor da Função Objetivo** | 64      |
 | **Média do melhor jogo**            | 60.2627 |
