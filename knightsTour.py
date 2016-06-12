@@ -2,9 +2,10 @@ import copy
 import random
 import time
 
-NUM_GENERATIONS = 30
-POPULATION_SIZE = 30
+NUM_GENERATIONS = 1000
+POPULATION_SIZE = 100
 TABLE_SIZE = 8
+MUTATION_RATE = 0.20
 
 def createTable(rows=TABLE_SIZE, columns=TABLE_SIZE, zeroes=True):
 	if zeroes:
@@ -21,7 +22,10 @@ class Game():
 		self.moves = 0
 		self.path = []
 		self.table = createTable()
-		self.position = (0,0)
+		# x = int(TABLE_SIZE * random.random())
+		# y = int(TABLE_SIZE * random.random())
+		# self.position = (x, y)
+		self.position = (0, 0)
 		self.table[0][0] = 1
 
 	def nextMoves(self):
@@ -81,10 +85,18 @@ class Game():
 				print(repr(self.priority_table[i][j]).rjust(3), end=' ')
 			print()
 
+	def printTables(self):
+		print("\nPriority Table")
+		self.printPriorityTable()
+
+		print("\nTable")
+		self.printTable()
+
 	def __add__(self, other):
 		g = copy.deepcopy(self)
-		for i in range(0, int(TABLE_SIZE/2)):
-			for j in range(0, TABLE_SIZE):
+		lines = int(random.random() * TABLE_SIZE)
+		for i in range(lines):
+			for j in range(TABLE_SIZE):
 				g.priority_table[i][j] = other.priority_table[i][j]
 
 		g.play()
@@ -95,6 +107,7 @@ class Population():
 		self.games = []
 		self.bestGames = []
 		self.worstGames = []
+		self.generation = 0
 
 		for i in range(POPULATION_SIZE):
 			g = Game()
@@ -105,9 +118,8 @@ class Population():
 			game.play()
 
 		self.bestGames.append(self.getBestGame()) 
-		self.worstGames.append(self.getWorstGame()) 
-
-		print("({0}, {1})".format(self.bestGames[-1].moves, self.worstGames[-1].moves))
+		self.worstGames.append(self.getWorstGame())
+		self.generation += 1
 
 	def getBestGame(self):
 		bestGame = self.games[0]
@@ -125,31 +137,60 @@ class Population():
 
 		return worstGame
 
-	def cross(self):
-		pass
-
 	def nextGeneration(self):
 		new_generation = []
+		HALF_POPULATION = int(POPULATION_SIZE/2)
+
+		# SELECTION
+		for i in range(HALF_POPULATION):
+			j = i
+			k = i + HALF_POPULATION
+
+			if self.games[j].moves > self.games[k].moves:
+				new_generation.append(self.games[j])
+			else:
+				new_generation.append(self.games[k])
+
+		# CROSSOVER
+		for i in range(HALF_POPULATION):
+			j = random.randint(0, HALF_POPULATION-1)
+			k = random.randint(0, HALF_POPULATION-1)
+
+			self.games[i] = new_generation[j] + new_generation[k]
+			self.games[i + HALF_POPULATION] = new_generation[k] + new_generation[j]
+
+		# MUTATION
 		for i in range(POPULATION_SIZE):
-			i = random.randint(0,POPULATION_SIZE-1)
-			j = random.randint(0,POPULATION_SIZE-1)
+			if random.random() < MUTATION_RATE:
+				self.games[i].mutation()
 
-			new_generation.append(self.games[i] + self.games[j])
-			new_generation.append(self.games[j] + self.games[i])
-
-			new_generation[-1].mutation()
-
-		self.games = new_generation
 		self.games[0] = self.bestGames[-1]
 
+	def printBestGame(self):
+		print("#{0} ({1}, {2})".format(self.generation, self.bestGames[-1].moves, self.worstGames[-1].moves))
+
+	def goalAchieved(self):
+		if not p.bestGames:
+			return False
+
+		if p.bestGames[-1].moves == TABLE_SIZE * TABLE_SIZE - 1:
+			return True
+		else:
+			return False
+
+
 if __name__ == '__main__':
-	start = time.time()
+	# start = time.time()
 	
 	p = Population()
 
 	for i in range(NUM_GENERATIONS):
 		p.play()
 		p.nextGeneration()
+		p.printBestGame()
+
+		if p.goalAchieved():
+			break
     
 	x = [i for i in range(NUM_GENERATIONS)]
 	y = []
@@ -161,18 +202,15 @@ if __name__ == '__main__':
 	for game in p.worstGames:
 		z.append(game.moves)
 
-	end = time.time()
-	print(end - start)
-#print('\nGenerations')
-#print(x)
-#print('\nBest Game')
-#print(y)
-#print('\nWorst Game')
-#print(z)
+	# end = time.time()
+	# print(end - start)
+
+# print('\nGenerations')
+# print(x)
+# print('\nBest Game')
+# print(y)
+# print('\nWorst Game')
+# print(z)
 
 
-#bestGame = p.bestGames[-1]
-#print("\nPriority Table")
-#bestGame.printPriorityTable()
-#print("\nTable")
-#bestGame.printTable()
+p.bestGames[-1].printTables()
